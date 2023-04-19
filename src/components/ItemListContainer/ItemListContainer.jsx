@@ -1,6 +1,7 @@
 import './ItemListContainer.css';
 import { ItemList } from '../ItemList/ItemList.jsx';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const BDD = [{
     "id": 1,
@@ -35,29 +36,51 @@ const BDD = [{
 export const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
+    const {category} = useParams()
 
     useEffect(() => {
-        const promesa = () => new Promise((resolve, reject) => {
-            if(true){
-                resolve(BDD)
-            }
-            reject("No posee los permisos necesarios ")
-        })
+        if(category){ //Se consulta si ingresaron un parametro en la url
+            fetch('../json/productos.json')
+            .then(response => response.json())
+            .then(productos => {
+                const productosFiltrados = productos
+                                            .filter(prod => prod.stock > 0)
+                                            .filter(prod => prod.idCategoria === category)
+                setProductos(productosFiltrados)
+    
+            })
+        } else{
+            fetch('./json/productos.json')
+            .then(response => response.json())
+            .then(productos => {
+                const productosFiltrados = productos.filter(prod => prod.stock > 0)
+                setProductos(productosFiltrados)
+            })
+        }
+    }, [category]) //Cada vez que se modifica la categoria se ejecuta el código
 
-        promesa()
-        .then(productos => {
-            const productosFiltrados = productos.filter(prod => prod.stock > 0)
-            const items = <ItemList productos={ productosFiltrados } />
-            setProductos(items)
-            console.log(items)
-        })
-        .catch(error => console.error(error))
-    }, [])
+    // useEffect(() => {
+    //     const promesa = () => new Promise((resolve, reject) => {
+    //         if(true){
+    //             resolve(BDD)
+    //         }
+    //         reject("No posee los permisos necesarios ")
+    //     })
+
+    //     promesa()
+    //     .then(productos => {
+    //         const productosFiltrados = productos.filter(prod => prod.stock > 0)
+    //         const items = <ItemList productos={ productosFiltrados } />
+    //         setProductos(items)
+    //         console.log(items)
+    //     })
+    //     .catch(error => console.error(error))
+    // }, [])
 
     return (
         <div className="row">
             <h1 className='Titulo'>Bienvenido</h1>
-            {productos}
+            {<ItemList productos={productos} />}
         </div>
     );
 }

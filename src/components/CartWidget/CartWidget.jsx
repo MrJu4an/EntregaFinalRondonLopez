@@ -1,11 +1,10 @@
-import cart from './assets/cart.png'
 import './CartWidget.css';
 
-export const CardWidget = () => {
+export const CardWidget = ({cantCarrito}) => {
     return (
         <>
-            <p className='fs-5'><b className='count'>0</b></p>
-            <img className="cart" src={cart} alt="cart-widget"></img>
+            <p className='fs-5 count'>{cantCarrito}</p>
+            <button className="btn btn-dark"><i className="fas fa-shopping-cart fa-lg"></i></button>
         </>
             
     );
