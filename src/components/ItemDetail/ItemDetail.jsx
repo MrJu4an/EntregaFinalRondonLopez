@@ -3,7 +3,7 @@ export const ItemDetail = ({item}) => {
 
     const onAdd = (contador) => {
         console.log(contador)
-        console.log(item)
+        //console.log(item)
     }
 
     return (

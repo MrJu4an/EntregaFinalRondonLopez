@@ -31,23 +31,32 @@ export const ItemListContainer = () => {
     // }, [category]) //Cada vez que se modifica la categoria se ejecuta el código
 
     useEffect(() => {
-        if(category){
-            getProductsByCategory(category)
-                .then(response => {
-                    setProductos(response)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-        } else{
-            getProducts()
-                .then(response => {
-                    setProductos(response)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-        }
+        const asyncFunc = category ? getProductsByCategory : getProducts
+
+        asyncFunc(category)
+            .then(response => {
+                setProductos(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        // if(category){
+        //     getProductsByCategory(category)
+        //         .then(response => {
+        //             setProductos(response)
+        //         })
+        //         .catch(error => {
+        //             console.log(error)
+        //         })
+        // } else{
+        //     getProducts()
+        //         .then(response => {
+        //             setProductos(response)
+        //         })
+        //         .catch(error => {
+        //             console.log(error)
+        //         })
+        // }
     })
 
     return (
