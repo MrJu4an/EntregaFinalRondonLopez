@@ -1,10 +1,20 @@
 import './CartWidget.css';
-
-export const CardWidget = ({cantCarrito}) => {
+import { useCarritoContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+export const CardWidget = () => {
+    const {getItemQuantity} = useCarritoContext()
     return (
+
         <>
-            <p className='fs-5 count'>{cantCarrito}</p>
-            <button className="btn btn-dark"><i className="fas fa-shopping-cart fa-lg"></i></button>
+            <button className="btn btn-dark cartWidget">
+                <Link to={"/cart"} className='nav-link'>
+                    <i className="fas fa-shopping-cart fa-lg"></i>
+                    {getItemQuantity() > 0 && 
+                        <span className='cantCarrito'>
+                            {getItemQuantity()}
+                        </span>}
+                </Link>
+            </button>
         </>
             
     );

@@ -3,11 +3,13 @@ import { ItemList } from '../ItemList/ItemList.jsx';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProducts, getProductsByCategory } from '../../hooks/asyncMock';
+//import { useDarkModeContext } from '../../context/DarkModeContext';
 
 export const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
     const {category} = useParams()
+    //const {darkMode} = useDarkModeContext()
 
     // useEffect(() => {
     //     if(category){ //Se consulta si ingresaron un parametro en la url
@@ -62,7 +64,7 @@ export const ItemListContainer = () => {
     return (
         <div className="row">
             <h1 className='Titulo'>Bienvenido</h1>
-            {<ItemList productos={productos} />}
+            {<ItemList productos={productos} plantilla={"Item"} />}
         </div>
     );
 }

@@ -2,3 +2,28 @@
     max-width: 740px;
     margin-top: 10px;
 }
+.cardBody {
+    background-color: white;
+    margin-bottom: 3px;
+    text-align: center;
+}
+.cardCart {
+    max-width: 540px;
+}
+.cardBodyDark{
+    background-color: hsl(0, 0%, 33%);
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.darkMode {
+    background-color: black;
+}
+
+.cartContainer {
+    margin-top: 3%;
+}
+.cantCarrito {
+    position: relative;
+    left: 15%;
+}

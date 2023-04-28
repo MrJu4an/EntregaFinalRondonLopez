@@ -3,6 +3,7 @@ import { Categorias } from './Categorias/Categorias';
 import { CardWidget } from '../CartWidget/CartWidget';
 import logo from './assets/logo-idevs.png'
 import { Link } from 'react-router-dom';
+import { BotonDarkMode } from './BotonDarkMode/botonDarkMode';
 export const Navbar = () => {
     return(
             <div className="container-fluid">
@@ -20,7 +21,8 @@ export const Navbar = () => {
                             </div>
                             <div className='col-2'>
                                 <ul>
-                                <CardWidget cantCarrito={0}/>
+                                <CardWidget />
+                                <BotonDarkMode />
                                 </ul>
                             </div>                    
                         </div>
