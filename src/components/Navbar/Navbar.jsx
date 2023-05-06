@@ -1,7 +1,6 @@
 import './Navbar.css';
 import { Categorias } from './Categorias/Categorias';
 import { CardWidget } from '../CartWidget/CartWidget';
-import logo from './assets/logo-idevs.png'
 import { Link } from 'react-router-dom';
 import { BotonDarkMode } from './BotonDarkMode/botonDarkMode';
 export const Navbar = () => {
@@ -12,7 +11,7 @@ export const Navbar = () => {
                         <div className="container-fluid">
                             <div className='col-2'>
                                 <Link className='nav-bar brand' to={`/`}>
-                                    <img className='m-2 logo' src={logo} alt=''></img>
+                                    <img className='m-2 logo' src={"https://firebasestorage.googleapis.com/v0/b/ecommerce-react-2.appspot.com/o/logo-idevs.png?alt=media&token=aa2e99e0-91ac-47bf-8a92-556687b49332"} alt=''></img>
                                     <button className='btn btn-dark'>iDevs</button>
                                 </Link>
                             </div>

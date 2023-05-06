@@ -78,27 +78,27 @@ export const Checkout = () => {
                     <form onSubmit={consultarFormulario} ref={datForm}>
                         <div className="mb-3">
                             <label htmlFor="nombre" className="form-label">Nombre y Apellido</label>
-                            <input type="text" className="form-control" name="nombre"></input>
+                            <input type="text" className="form-control" name="nombre" required></input>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">Email</label>
-                            <input type="text" className="form-control" name="email"></input>
+                            <input type="text" className="form-control" name="email" required></input>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="email2" className="form-label">Confirmar Email</label>
-                            <input type="text" className="form-control" name="email2"></input>
+                            <input type="text" className="form-control" name="email2" required></input>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="dni" className="form-label">DNI</label>
-                            <input type="number" className="form-control" name="dni"></input>
+                            <input type="number" className="form-control" name="dni" required></input>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="celular" className="form-label">Número Telefónico</label>
-                            <input type="number" className="form-control" name="celular"></input>
+                            <input type="number" className="form-control" name="celular" required></input>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="direccion" className="form-label">Dirección</label>
-                            <input type="text" className="form-control" name="direccion"></input>
+                            <input type="text" className="form-control" name="direccion" required></input>
                         </div>
                         <button type="submit" className="btn btn-primary">Finalizar compra</button>
                     </form>

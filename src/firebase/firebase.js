@@ -4,25 +4,16 @@ import { getFirestore, addDoc, getDoc, getDocs, updateDoc, deleteDoc, collection
 //Se comenta ya que la funcion de getProducts de asyncMock se llama igual a otra funcion creada para la gestion con FireBase
 //import { getProducts } from '../hooks/asyncMock';
 
-// Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCtDLqkrGWsQemsSo2ku5llEthvi6Z8DqI",
-//   authDomain: "ecommerce-react-39655.firebaseapp.com",
-//   projectId: "ecommerce-react-39655",
-//   storageBucket: "ecommerce-react-39655.appspot.com",
-//   messagingSenderId: "633559911411",
-//   appId: "1:633559911411:web:20032f5dd6048d84d32086"
-// };
-
-//Segunda base de datos por consumo completo del stock gratuito
+//Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAcENU330F8ojfpKCWzSlTo84Z1iaLHyA0",
-  authDomain: "ecommerce-react-2.firebaseapp.com",
-  projectId: "ecommerce-react-2",
-  storageBucket: "ecommerce-react-2.appspot.com",
-  messagingSenderId: "551590176228",
-  appId: "1:551590176228:web:d9c2a27115c0b3c56113f1"
+  apiKey: process.env.API_KEY,
+  authDomain: "ecommerce-react-39655.firebaseapp.com",
+  projectId: "ecommerce-react-39655",
+  storageBucket: "ecommerce-react-39655.appspot.com",
+  messagingSenderId: "633559911411",
+  appId: "1:633559911411:web:20032f5dd6048d84d32086"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
