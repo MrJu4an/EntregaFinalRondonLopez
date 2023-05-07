@@ -29,7 +29,7 @@ export const ItemListContainer = () => {
     })
 
     return (
-        <div className="row">
+        <div className="row justify-content-center p-4">
             <h1 className='Titulo'>Bienvenido</h1>
             {<ItemList productos={productos} plantilla={"Item"} />}
         </div>

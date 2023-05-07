@@ -1,13 +1,16 @@
 # Ecommerce React 
 
 _Ecommerce de la comision 39655 de React de Coderhouse_
-
-## Pre Requerimientos 📋
+ 
+## Pre Requisitos 📋
 
 _Instalar React mediante sus instaladores, ademas de las siguientes dependencias_
 
 ```
-    npm i firebase react-router-dom react-toastify
+    📍 npm i react-router-dom
+    📍 npm install firebase
+    📍 npm i react-toastify
+    📍 npm install react-hook-form
 ```
 
 ## Ejecutando la aplicacion ⌨️
@@ -23,5 +26,7 @@ _Una vez ejecutado, vaya al localhost:3000 para poder visualizar su aplicacion_
 ## Creado con 🧰
 
 * [React] (https://es.react.dev/) - Framework del Frontend
+* [React-Router-Dom] (https://reactrouter.com/en/main) - Routes
 * [Firebase] (https://firebase.google.com) - Base de Datos y servidor 
 * [Toastify] (https://fkhadra.github.io/react-toastify/introduction) - Notificaciones
+* [React-Hook-Forms] (https://react-hook-form.com) - Validación de formularios

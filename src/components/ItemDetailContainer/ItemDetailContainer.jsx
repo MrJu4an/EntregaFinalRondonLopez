@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../../firebase/firebase";
-//import { getProductById } from "../../hooks/asyncMock";
 
 export const ItemDetailContainer = () => {
     const [item, setItem] = useState([])

@@ -28,7 +28,7 @@ const App = () => {
             <Route path='/product/:id' element={<ItemDetailContainer/>} />
             <Route path='/checkout/' element={<Checkout/>} />
             <Route path='/cart' element={<Cart />} />
-            <Route path='*' element={<h1>404 Not Found</h1>} />
+            <Route path='*' element={<center><h1 className='mt-5'>404 Not Found</h1></center>} />
           </Routes>
         </DarkModeProvider>
       </BrowserRouter>

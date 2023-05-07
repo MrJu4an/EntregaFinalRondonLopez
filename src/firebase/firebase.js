@@ -1,9 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, addDoc, getDoc, getDocs, updateDoc, deleteDoc, collection, doc } from 'firebase/firestore';
 
-//Se comenta ya que la funcion de getProducts de asyncMock se llama igual a otra funcion creada para la gestion con FireBase
-//import { getProducts } from '../hooks/asyncMock';
-
 //Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
