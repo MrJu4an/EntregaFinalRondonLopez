@@ -3,13 +3,45 @@ import { useCarritoContext } from "../../context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
 import { createOrdenCompra, getProduct, updateProduct } from "../../firebase/firebase";
 import { useForm } from 'react-hook-form';
+//Validaciones formulario
 import { toast } from "react-toastify";
+import * as Yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup'
+
 
 export const Checkout = () => {
+
+    //Validaciones formulario
+    const formSchema = Yup.object().shape({
+        name: Yup.string()
+            .required('El nombre es requerido.')
+            .min(3, 'El nombre debe tener al menos 3 caracteres.')
+            .max(60, 'El nombre debe tener al menos 60 caracteres.'),
+        email: Yup.string()
+            .required('El campo es requerido.')
+            .email('El email no tiene un formato valido.'),
+        email2: Yup.string()
+            .required('El email de confirmación es requerido.')
+            .email('El email de confirmación no tiene un formato valido.')
+            .oneOf([Yup.ref('email')], 'Los correos son distintos.'),
+        dni: Yup.string()
+            .required('El DNI es requerido.')
+            .min(3, 'El DNI debe tener al menos 3 caracteres.'),
+        celular: Yup.string()
+            .required('El número de celular es requerido.')
+            .min(9, 'El número de celular debe tener mínimo 9 caracteres.')
+            .max(9, 'El número de celular debe tener máximo 9 caracteres.'),
+        direccion: Yup.string()
+            .required('La dirección es requerida.')
+            .min(10, 'La dirección debe tener al menos 10 caracteres.')
+    })
+
+    const formOptions = {resolver: yupResolver(formSchema)}
+
     //Declaración de variables
     const datForm = useRef() //Crear referencia para consultar los valores del formulario
     const { carrito, totalPrice, emptyCart } = useCarritoContext()
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm(formOptions);
     let navigate = useNavigate() //Devuelve la localización actual
 
     const consultarFormulario = () => {
@@ -87,86 +119,42 @@ export const Checkout = () => {
                         <div className="mb-3">
                             <label htmlFor="nombre" className="form-label">Nombre y Apellido</label>
                             <input type="text" className="form-control" name="nombre" 
-                                {...register("name", {
-                                    required: "El nombre es requerido.",
-                                    minLength: {
-                                        value: 3,
-                                        message: "El nombre debe tener mínimo 3 caracteres."
-                                    },
-                                    maxLength: {
-                                        value: 60,
-                                        message: "El nombre debe tener máximo 60 caracteres."
-                                    }})} >
+                                {...register("name")} >
                             </input>
                             {errors.name && <p role="alert" className="alert alert-danger fst-normal">{errors.name?.message}</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">Email</label>
-                            <input type="text" className="form-control" name="email" value={register.email} 
-                                {...register("email", {
-                                    required: "El email es requerido.",
-                                    pattern: {
-                                        value: /^\S+@\S+$/i,
-                                        message: "El email no es valido."
-                                    }
-                                })}>
+                            <input type="text" className="form-control" name="email"
+                                {...register("email")}>
                             </input>
                             {errors.email && <p role="alert" className="alert alert-danger fst-normal">{errors.email?.message}</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="email2" className="form-label">Confirmar Email</label>
-                            <input type="text" className="form-control" name="email2" value={register.email2}
-                                {...register("email2", {
-                                    required: "La confirmación del correo es requerida.",
-                                    pattern: {
-                                        value: /^\S+@\S+$/i,
-                                        message: "El email de confirmación no es valido."
-                                    }
-                                    })}>         
+                            <input type="text" className="form-control" name="email2"
+                                {...register("email2")}>         
                             </input>
                             {errors.email2 && <p role="alert" className="alert alert-danger fst-normal">{errors.email2?.message}</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="dni" className="form-label">DNI</label>
                             <input type="number" className="form-control" name="dni" 
-                                {...register("dni", {
-                                    required: "El DNI es requerido.",
-                                    minLength: {
-                                        value: 3,
-                                        message: "El DNI debe tener mínimo 3 digitos."
-                                    },
-                                    
-                                })}>
+                                {...register("dni")}>
                             </input>
                             {errors.dni && <p role="alert" className="alert alert-danger fst-normal">{errors.dni?.message}</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="celular" className="form-label">Número Telefónico</label>
                             <input type="number" className="form-control" name="celular" 
-                                {...register("celular", {
-                                    required: "El número de celular es requerido.",
-                                    minLength: {
-                                        value: 9,
-                                        message: "El número de celular debe tener mínimo 9 digitos."
-                                    },
-                                    maxLength: {
-                                        value: 9,
-                                        message: "El número de celular debe tener máximo 9 digitos."
-                                    }
-                                })}> 
+                                {...register("celular")}> 
                             </input>
                             {errors.celular && <p role="alert" className="alert alert-danger fst-normal">{errors.celular?.message}</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="direccion" className="form-label">Dirección</label>
                             <input type="text" className="form-control" name="direccion" 
-                                {...register("direccion", {
-                                    required: "La dirección es requerida.",
-                                    minLength: {
-                                        value: 10,
-                                        message: "La dirección debe tener al menos 10 caracteres."
-                                    }
-                                })}>
+                                {...register("direccion")}>
                             </input>
                             {errors.direccion && <p role="alert" className="alert alert-danger fst-normal">{errors.direccion?.message}</p>}
                         </div>

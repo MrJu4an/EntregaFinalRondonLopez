@@ -11,6 +11,8 @@ _Instalar React mediante sus instaladores, ademas de las siguientes dependencias
     📍 npm install firebase
     📍 npm i react-toastify
     📍 npm install react-hook-form
+    📍 npm i yup
+    📍 npm install @hookform resolvers yup
 ```
 
 ## Ejecutando la aplicacion ⌨️
@@ -30,3 +32,4 @@ _Una vez ejecutado, vaya al localhost:3000 para poder visualizar su aplicacion_
 * [Firebase] (https://firebase.google.com) - Base de Datos y servidor 
 * [Toastify] (https://fkhadra.github.io/react-toastify/introduction) - Notificaciones
 * [React-Hook-Forms] (https://react-hook-form.com) - Validación de formularios
+* [Yup] (https://www.npmjs.com/package/yup) - Validación de formularios
