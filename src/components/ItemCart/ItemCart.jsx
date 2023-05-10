@@ -1,4 +1,5 @@
 import { useCarritoContext } from "../../context/CartContext";
+import { currencyFormatter } from "../../hooks/useFormatter";
 export const ItemCart = ({ item }) => {
     const { removeItem } = useCarritoContext()
     return (
@@ -11,8 +12,8 @@ export const ItemCart = ({ item }) => {
                     <div className="card-body">
                         <h5 className="card-title">{item.nombre} {item.modelo}</h5>
                         <p className="card-text">Cantidad: {item.quantity}</p>
-                        <p className="card-text">Precio Unitario: {item.precio}</p>
-                        <p className="card-text">SubTotal: {item.precio * item.quantity}</p>
+                        <p className="card-text">Precio Unitario: ${ currencyFormatter({currency: "COP", value: item.precio})}</p>
+                        <p className="card-text">SubTotal: ${ currencyFormatter({ currency: "COP", value: item.precio * item.quantity})}</p>
                         <button className="btn btn-danger" onClick={() => removeItem(item.id)}><i className="fas fa-trash-alt"></i></button>
                     </div>
                 </div>

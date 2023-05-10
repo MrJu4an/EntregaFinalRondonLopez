@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup'
+import { currencyFormatter } from "../../hooks/useFormatter";
 
 
 export const Checkout = () => {
@@ -77,7 +78,7 @@ export const Checkout = () => {
         createOrdenCompra(cliente, totalPrice(), aux2, new Date().toLocaleString('es-CO', {timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone}))
         .then(ordenCompra => {
             //console.log(`Muchas gracias por comprar con nosotros, su ID de compra es ${ordenCompra.id} por un total de ${totalPrice()}, en breve nos contactaremos para el envio.`)
-            toast(` 🛒 Muchas gracias por comprar con nosotros, su ID de compra es ${ordenCompra.id} por un total de $ ${totalPrice()} COP, en breve nos contactaremos para el envio`, {
+            toast(` 🛒 Muchas gracias por comprar con nosotros, su ID de compra es ${ordenCompra.id} por un total de $ ${ currencyFormatter({ currency: "COP", value: totalPrice() }) } , en breve nos contactaremos para el envio`, {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,

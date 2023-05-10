@@ -1,6 +1,7 @@
 import { useCarritoContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import { ItemList } from "../ItemList/ItemList";
+
 export const Cart = () => {
     const {carrito, emptyCart} = useCarritoContext()
     return (
@@ -14,7 +15,6 @@ export const Cart = () => {
                                 <h1 className="mt-5">Carrito vacio</h1>
                                 <button className="btn btn-primary mt-5"><Link to={"/"} className="nav-link">Continuar comprando</Link></button>
                             </center>
-                                                 
                         </>
                     :
                         <>

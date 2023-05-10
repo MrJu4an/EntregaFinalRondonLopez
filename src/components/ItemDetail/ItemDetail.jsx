@@ -1,5 +1,6 @@
 import {ItemCount} from "../ItemCount/ItemCount";
 import { useCarritoContext } from "../../context/CartContext";
+import { currencyFormatter } from "../../hooks/useFormatter";
 export const ItemDetail = ({item}) => {
 
     const { addItem } = useCarritoContext()
@@ -17,7 +18,7 @@ export const ItemDetail = ({item}) => {
                     <h5 className="card-title">{item.nombre}</h5>
                     <p className="card-text">Modelo: {item.modelo}</p>
                     <p className="card-text">Marca: {item.marca}</p>
-                    <p className="card-text">Precio: ${item.precio}</p>
+                    <p className="card-text">Precio: ${ currencyFormatter({currency: "COP", value: item.precio}) }</p>
                     <p className="card-text">Stock: {item.stock}</p>
                     <ItemCount valInicial={1} min={1} max={item.stock} onAdd={onAdd} />
                 </div>
