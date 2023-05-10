@@ -119,42 +119,42 @@ export const Checkout = () => {
                     <form onSubmit={handleSubmit(consultarFormulario)} ref={datForm}>
                         <div className="mb-3">
                             <label htmlFor="nombre" className="form-label">Nombre y Apellido</label>
-                            <input type="text" className="form-control" name="nombre" 
+                            <input type="text" className="form-control" name="nombre" autoComplete="off"
                                 {...register("name")} >
                             </input>
                             {errors.name && <p role="alert" className="alert alert-danger fst-normal">{errors.name?.message}</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">Email</label>
-                            <input type="text" className="form-control" name="email"
+                            <input type="text" className="form-control" name="email" autoComplete="off"
                                 {...register("email")}>
                             </input>
                             {errors.email && <p role="alert" className="alert alert-danger fst-normal">{errors.email?.message}</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="email2" className="form-label">Confirmar Email</label>
-                            <input type="text" className="form-control" name="email2"
+                            <input type="text" className="form-control" name="email2" autoComplete="off"
                                 {...register("email2")}>         
                             </input>
                             {errors.email2 && <p role="alert" className="alert alert-danger fst-normal">{errors.email2?.message}</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="dni" className="form-label">DNI</label>
-                            <input type="number" className="form-control" name="dni" 
+                            <input type="number" className="form-control" name="dni" autoComplete="off"
                                 {...register("dni")}>
                             </input>
                             {errors.dni && <p role="alert" className="alert alert-danger fst-normal">{errors.dni?.message}</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="celular" className="form-label">Número Telefónico</label>
-                            <input type="number" className="form-control" name="celular" 
+                            <input type="number" className="form-control" name="celular" autoComplete="off"
                                 {...register("celular")}> 
                             </input>
                             {errors.celular && <p role="alert" className="alert alert-danger fst-normal">{errors.celular?.message}</p>}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="direccion" className="form-label">Dirección</label>
-                            <input type="text" className="form-control" name="direccion" 
+                            <input type="text" className="form-control" name="direccion" autoComplete="off"
                                 {...register("direccion")}>
                             </input>
                             {errors.direccion && <p role="alert" className="alert alert-danger fst-normal">{errors.direccion?.message}</p>}
