@@ -8,6 +8,7 @@ _🔶 Web creada a manera de proyecto final de la cursada._
 _🔶 El usuario podrá navegar por el sitio y consultar los distintos productos a la venta, además de poder agregar productos al carrito y simular la compra de uno de estos._
 
 _🔶 La información de los productos en venta y las ordenes de compra son almacenadas en una base de datos en FireBase._
+
 _🔶 El proyecto no cuenta con lógica de manejo de usuarios._
 
 ## Pre Requisitos 📋
