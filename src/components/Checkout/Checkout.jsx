@@ -3,11 +3,11 @@ import { useCarritoContext } from "../../context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
 import { createOrdenCompra, getProduct, updateProduct } from "../../firebase/firebase";
 import { useForm } from 'react-hook-form';
+import { currencyFormatter } from "../../hooks/useFormatter";
 //Validaciones formulario
 import { toast } from "react-toastify";
 import * as Yup from "yup";
-import { yupResolver } from '@hookform/resolvers/yup'
-import { currencyFormatter } from "../../hooks/useFormatter";
+import { yupResolver } from '@hookform/resolvers/yup';
 
 
 export const Checkout = () => {
@@ -59,7 +59,6 @@ export const Checkout = () => {
                         prodBBD.stock -= prodCarrito.quantity
                         updateProduct(prodBBD.id, prodBBD)
                     } else {
-                        //console.log("El stock no es mayor o igual a la cantidad que se quiere comprar")
                         toast(`⚡ El stock no es mayor o igual a la cantidad que se quiere comprar`, {
                             position: "top-right",
                             autoClose: 5000,
